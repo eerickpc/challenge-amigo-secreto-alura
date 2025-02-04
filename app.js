@@ -9,10 +9,14 @@ function asignarTexto(id, texto){
 function agregarAmigo(){
     let amigoIng = document.getElementById("amigo").value
     if (amigoIng){ //verificar que tenga algo la caja
-        amigos.push(amigoIng);
-        console.log(amigos);
-        mostrarAmigos();
-        limpiarTexto();
+        if(/^([a-zA-ZñÑáéíóúÁÉÍÓÚäÄËëÏïöÖü])+$/i.test(amigoIng)){
+            amigos.push(amigoIng);
+            console.log(amigos);
+            mostrarAmigos();
+            limpiarTexto();
+        } else{
+            alert("El nombre ingresado solo puede contener letras!");
+        }
     } else{
         alert("No se pudo obtener ningun amigo, asegurate de que hayas ingresado algo.");
     }
